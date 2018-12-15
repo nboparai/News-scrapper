@@ -4,7 +4,7 @@
             <ul class="nav nav-pills float-right">
                 <li class="nav-item">
                     <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-               
+               <button type="button" id="getSaved" class="btn btn-primary">Get Saved Articles</button>
             </ul>
         </nav>
         <h3 class="text-muted">Mongo WebScraping</h3>
@@ -17,7 +17,8 @@
 <div class="jumbotron">
         <h1 class="jumboheader">NYT-World News Scraper</h1>
         <p class="lead">Scrape the latest world news</p>
-        <p><a class="btn btn-lg btn-success" href="/api/scrape" role="button">Scrape latest</a></p>
+       
+        <button class="btn btn-lg btn-success" id="scrape"> Scrape Latest</button>
     </div>
 
      {{#each result}}

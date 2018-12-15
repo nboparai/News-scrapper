@@ -41,30 +41,31 @@ module.exports = function(app) {
           
                 // Create a new Article using the `result` object built from scraping
                 db.Article.find({}).then(function(response){
-                    console.log(`response from database ${response}`);
+                    // console.log(`response from database ${response}`);
                     response.forEach(record => {
                         headlineArray.push(record.title);
                     })
 
-                    console.log(headlineArray);
+                    // console.log(headlineArray);
                 });
                 if(headlineArray.indexOf(result.title) == -1) {
-                db.Article.create(result)
-                  .then(function(dbArticle) {
-                    // View the added result in the console
-                    // console.log(`artcle db ${dbArticle}`); 
-                  })
-                  .catch(function(err) {
-                    // If an error occurred, send it to the client
-                    return res.json(err);
-                  });
+                db.Article.create(result, function (err, data) { 
+                  if (err) {
+                    console.log(err)
+                  }
+                 else {
+                   console.log(data);
+                 }
+                  
               
           
             // res.send("scrape complete")
-                }
+                });
+              }
         })
       
     })
+    // res.redirect("/")
 });
 app.get("/articles", function (req, res) {
     // Grab every record 
@@ -72,10 +73,11 @@ app.get("/articles", function (req, res) {
       .find({}, function (error, data) {
         
         if (error) {
-          console.log(error// Or send the doc to the browser as a json object
-          );
+          console.log(error);// Or send the doc to the browser as a json object
+          
         } else {
           res.render("index", {result: data});
+          console.log(data);
         }
     
       })

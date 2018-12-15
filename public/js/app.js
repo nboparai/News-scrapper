@@ -1,11 +1,30 @@
-// $("#scrape").on("click", function () {
+$("#scrape").on("click", function () {
     
-//     $.get("/api/scrape", function(data){
-//         console.log(`getting reponse back ${data}`);
-//     })
-    
-// })
+  $.get("/api/scrape", function(data){
 
+    // res.send(data);
+    alert("scrape complete")
+  // console.log(`getting reponse back ${data}`);
+  });
+  // location.reload();
+
+})
+
+$("#getSaved").on("click", function () {
+  $.get("/articles", function(data) {
+
+  })
+})
+
+$('.delete-button').on('click', function(e){
+  e.preventDefault();
+  var qURL = location.href +'/' + $(this).data('comment');
+  $.ajax({
+    method:"DELETE",
+    url:qURL
+  })
+  location.reload();
+})
 
 
 // function getSavedArticles () {
