@@ -1,5 +1,47 @@
-<button type="submit" id="scrape"> Scrape Articles</button>
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+               
+            </ul>
+        </nav>
+        <h3 class="text-muted">Mongo WebScraping</h3>
+    </div>
 
 
 
-<div id="content"></div>
+{{!-- <div id="content"></div> --}}
+
+<div class="jumbotron">
+        <h1 class="jumboheader">NYT-World News Scraper</h1>
+        <p class="lead">Scrape the latest world news</p>
+        <p><a class="btn btn-lg btn-success" href="/api/scrape" role="button">Scrape latest</a></p>
+    </div>
+
+     {{#each result}}
+    <div class="card news-section">
+        <a href="{{this.link}}">
+            <h4 class="card-header">{{this.title}}</h4>
+        </a>
+        <div class="card-block">
+           
+            <a href="{{this.link}}">
+                <p class="card-text">{{this.summary}}</p>
+            </a>
+            <br>
+            <a href="/articles/{{this._id}}" class="btn btn-primary">Note</a>
+        </div>
+    </div>
+    <br>
+    <br> {{/each}}
+
+
+
+    <footer class="footer">
+        <p>&copy; News Scaper</p>
+    </footer>
+
+</div>
+<!-- /container -->

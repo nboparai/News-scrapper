@@ -40,7 +40,7 @@ else {
 }
 
 // Routes
-require("./controllers/htmlRoutes.js")(app);
+
 require("./controllers/apiRoutes.js")(app);
 
 // Start the server
