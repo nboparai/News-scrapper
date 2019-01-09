@@ -20,7 +20,7 @@ module.exports = function(app) {
         axios.get('https://www.nytimes.com/section/world').then(result => {
             // console.log(`data is ${result.data}`);
             var $ = cheerio.load(result.data);
-            // console.log(result.data)
+             console.log(result.data)
            
             $("article h2").each(function(i, element) {
                 // Save an empty result object
@@ -59,12 +59,13 @@ module.exports = function(app) {
                   
               
           
-            // res.send("scrape complete")
+    
                 });
               }
         })
       
     })
+    res.send("scrape complete")
     // res.redirect("/")
 });
 app.get("/articles", function (req, res) {

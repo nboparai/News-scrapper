@@ -4,6 +4,7 @@ $("#scrape").on("click", function () {
 
     // res.send(data);
     alert("scrape complete")
+    location.reload();
   // console.log(`getting reponse back ${data}`);
   });
   // location.reload();
