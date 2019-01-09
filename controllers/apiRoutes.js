@@ -34,7 +34,7 @@ module.exports = function(app) {
             
                 result.link = $(this).children().attr('href');
 
-                result.summary = $(this).find(".summary").text();
+                result.summary = $(this).siblings(".summary").text();
                 let headlineArray = [];
             
                 // console.log(result.summary);
